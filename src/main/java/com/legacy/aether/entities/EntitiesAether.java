@@ -3,9 +3,6 @@ package com.legacy.aether.entities;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,6 +43,8 @@ import com.legacy.aether.entities.util.EntityAetherItem;
 import com.legacy.aether.items.ItemAetherSpawnEgg;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraft.entity.Entity;
+import net.minecraft.world.World;
 
 public class EntitiesAether {
 
@@ -112,7 +111,8 @@ public class EntitiesAether {
 
 	private static void addMapping(Class<?> entityClass, String entityName, int entityID, int primaryEggColor, int secondaryEggColor) {
 		if (IDtoClassMapping.containsKey(Integer.valueOf(entityID))) {
-			throw new IllegalArgumentException("ID is already registered: " + entityID);
+			//throw new IllegalArgumentException("ID is already registered: " + entityID);
+			System.out.println("ID is already registered: " + entityID);
 		} else {
 			classToStringMapping.put(entityClass, entityName);
 			IDtoClassMapping.put(Integer.valueOf(entityID), entityClass);
